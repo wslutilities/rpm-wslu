@@ -16,4 +16,4 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: RPMs
-          path: ./compiled_rpms
+          path: /home/runner/work/rpm-wslu/rpm-wslu/compiled_rpms
