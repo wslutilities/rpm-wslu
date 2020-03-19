@@ -9,12 +9,15 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - run: mkdir compiled_rpms
       - name: rpmbuild
         uses: ./.github/actions/rpmbuild/
+      - name: moving files
+      - run: |
+          mkdir compiled_rpms
+          cp SRPMS/* compiled_rpms
+          cp RPMS/noarch/* compiled_rpms
         #uses: robertdebock/rpmbuild-action@1.1.1
-      - run: ls /github/files || exit 0
-      # - uses: actions/upload-artifact@v1
-      #   with:
-      #     name: RPMs
-      #     path: /home/runner/work/rpm-wslu/rpm-wslu/compiled_rpms
+      - uses: actions/upload-artifact@v1
+        with:
+          name: RPMs
+          path: compiled_rpms
