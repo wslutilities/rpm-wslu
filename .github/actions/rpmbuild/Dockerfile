@@ -2,7 +2,6 @@
 FROM centos:8
 
 WORKDIR /github/workspace
-ADD /home/runner/work/rpm-wslu/rpm-wslu/compiled_rpms /github/files
 
 RUN dnf install -y make tar gzip rpmdevtools dnf-utils spectool dnf-utils && \
     dnf clean all && \
@@ -11,5 +10,8 @@ RUN dnf install -y make tar gzip rpmdevtools dnf-utils spectool dnf-utils && \
 CMD spectool --get-files --all SPECS/*.spec && \
     yum-builddep --assumeyes SPECS/*.spec && \
     rpmbuild --define '_topdir /github/workspace' -ba SPECS/*.spec && \
+    mkdir -p /github/files && \
     cp SRPMS/* /github/files && \
     cp RPMS/noarch/* /github/files
+
+VOLUME [ "/github/files" ]

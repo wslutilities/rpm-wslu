@@ -13,7 +13,8 @@ jobs:
       - name: rpmbuild
         uses: ./.github/actions/rpmbuild/
         #uses: robertdebock/rpmbuild-action@1.1.1
-      - uses: actions/upload-artifact@v1
-        with:
-          name: RPMs
-          path: /home/runner/work/rpm-wslu/rpm-wslu/compiled_rpms
+      - run: ls /github/files || exit 0
+      # - uses: actions/upload-artifact@v1
+      #   with:
+      #     name: RPMs
+      #     path: /home/runner/work/rpm-wslu/rpm-wslu/compiled_rpms
