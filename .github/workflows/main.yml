@@ -11,4 +11,5 @@ jobs:
         uses: actions/checkout@v2
       - name: rpmbuild
         uses: ./.github/actions/rpmbuild/
+      - run: ls
         #uses: robertdebock/rpmbuild-action@1.1.1
