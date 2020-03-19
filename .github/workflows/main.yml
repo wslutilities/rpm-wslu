@@ -12,7 +12,7 @@ jobs:
       - name: rpmbuild
         uses: ./.github/actions/rpmbuild/
       - name: moving files
-      - run: |
+        run: |
           mkdir compiled_rpms
           cp SRPMS/* compiled_rpms
           cp RPMS/noarch/* compiled_rpms
