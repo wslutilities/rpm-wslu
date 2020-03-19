@@ -9,14 +9,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - run: mkdir compiled_rpms
       - name: rpmbuild
         uses: ./.github/actions/rpmbuild/
         #uses: robertdebock/rpmbuild-action@1.1.1
       - uses: actions/upload-artifact@v1
         with:
           name: RPMs
-          path: /github/workspace/RPMS/noarch/
-      - uses: actions/upload-artifact@v1
-        with:
-          name: SRPMs
-          path: /github/workspace/SRPMS/
+          path: ./compiled_rpms
