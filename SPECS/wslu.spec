@@ -2,8 +2,8 @@
 Summary: Windows 10 Linux Subsystem Utilities
 Name: wslu
 Version: 3.0.0
-Release: 1
-Source: wslu-BUILDVERPLACEHOLDER.tar.gz
+Release: 3.0.0
+Source: wslu-3.0.0.tar.gz
 BuildArch: noarch
 Requires: bc ImageMagick
 Requires(post): %{_sbindir}/update-alternatives
